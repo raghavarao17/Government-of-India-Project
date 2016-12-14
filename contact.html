@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<!-- Start of Navigation Bar -->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-WDM-navbar-collapse-1">
+        	<span class="sr-only">Toggle navigation</span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+    		</button>
+			<a class="navbar-brand" href="#"><img src="images/logo-blog.png"></a>
+		</div>
+	
+		<div class="collapse navbar-collapse navbar-right" id="bs-WDM-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="active" ><a href="index.html">Home</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="contact.html">Contact</a></li>
+				<li class="dropdown">
+		          	<a href="#" class="dropdown-toggle" data-toggle="dropdown">WDM Dropdown<b class="caret"></b></a>
+		          	<ul class="dropdown-menu">
+		            	<li><a href="#">Link1</a></li>
+		            	<li><a href="#">Link2</a></li>
+			            <li><a href="#">Link3</a></li>
+			            <li class="divider"></li>
+			            <li><a href="#">Separated link</a></li>
+			            <li class="divider"></li>
+			            <li><a href="#">One more separated link</a></li>
+		          	</ul>
+	        	</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- End of Navigation Bar -->
+
+<div class="container">
+<div class="row">
+	<div class="col-md-5">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+			<h4 class="panel-title">Contact Address</h4>
+			</div>
+  			<div class="panel-body">
+	
+			<address>
+				<strong>WebDevMentors</strong><br>
+				#999,Street of place,<br>
+				City of place,<br>
+				Country.
+			</address>
+		</div></div>
+		</div>
+	<div class="col-md-7">
+<div class="panel panel-default">
+	<div class="panel-heading">
+			<h4 class="panel-title">Contact Form</h4>
+			</div>
+  			<div class="panel-body">
+
+			 <form method="post" id="contactform" action="" role="form">
+				  <div class="form-group">
+				    <label for="contactname">Name</label>
+				    <input type="text" class="form-control" id="contactname" placeholder="Enter Name">
+				    <span class="help-block">Please Enter both your First Name and Last Name</span>
+				  </div>
+				  <div class="form-group">
+				    <label for="contactemail">Email Address</label>
+				    <input type="email" class="form-control" id="contactemail" placeholder="Enter Email">
+				  </div>
+				  <div class="form-group">
+				    <label for="contactsubject">Subject</label>
+				    <input type="text" class="form-control" id="contactsubject" placeholder="Enter Subject">
+				  </div>
+				  <div class="form-group">
+				  	<label for="contactmessage">Message</label>
+				  	<textarea class="form-control" id="contactmessage" rows="6"></textarea>
+				  </div>
+				 
+				  
+				  <button type="button" id="contactbtn" class="btn btn-default">Submit</button>
+			</form>
+  			</div></div>
+
+	</div>
+</div>
+
+</div>
+
+
+<!-- Start of the Footer -->
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-5">
+			<h4>Contact Address</h4>
+			<address>
+				#999,Street of place,<br>
+				City of place,<br>
+				Country.
+			</address>
+		</div>
+		</div>
+		<div class="bottom-footer">
+			<div class="col-md-5">© Copyright WebDevMentors 2014.</div>
+			<div class="col-md-7">
+				<ul class="footer-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.html">Contacts</a></li>
+					<li><a href="Link.html">Link</a></li>
+				</ul>	
+
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- End of the Footer -->
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+
+function validateText(id)
+{
+	if($("#"+id).val()==null || $("#"+id).val()=="")
+	{
+		var div = $("#"+id).closest("div");
+		div.removeClass("has-success");
+		$("#glypcn"+id).remove();
+		div.addClass("has-error has-feedback");
+		div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-remove form-control-feedback"></span>');
+		return false;
+	}
+	else
+	{
+		var div = $("#"+id).closest("div");
+		div.removeClass("has-error");
+		div.addClass("has-success has-feedback");
+		$("#glypcn"+id).remove();
+		div.append('<span id="glypcn'+id+'" class="glyphicon glyphicon-ok form-control-feedback"></span>');
+		return true;
+	}
+}
+
+$(document).ready(
+
+		function()
+		{
+			$("#contactbtn").click(function()
+				{
+					if(!validateText("contactname"))
+					{
+						return false;
+					}
+					if(!validateText("contactemail"))
+					{
+						return false;
+					}
+					if(!validateText("contactsubject"))
+					{
+						return false;
+					}
+					if(!validateText("contactmessage"))
+					{
+						return false;
+					}
+					
+					$("form#contactform").submit();
+
+				});
+		}
+
+	);
+
+</script>
+
+</body>
+
+</html>
